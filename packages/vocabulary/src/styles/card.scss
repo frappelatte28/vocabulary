@@ -1,8 +1,9 @@
 $card-shadow : none;
 $card-content-padding: $space-big;
 $card-header-shadow: none;
-
+$medium: 900px;
 @import "bulma/sass/components/card.sass";
+// @import "./mediaQueries.scss";
 
 .card {
     &.entry-post {
@@ -53,7 +54,10 @@ $card-header-shadow: none;
             }
         }
         &.horizontal {
-            display: flex;
+            display: inline;
+            @media screen and (min-width: $medium) {
+                display: flex;
+            }
             .card-content {
                 padding: $space-bigger;
             }
@@ -95,7 +99,11 @@ $card-header-shadow: none;
                     flex: 0 0 auto;
                 }
                 .card-image {
-                    width: 70%;
+                    width: 100%;
+                    .image{
+                        @include responsive(big-desktop) {
+                            width:70%;
+                        }
                     a {
                         .image {
                             &:before {
@@ -110,7 +118,11 @@ $card-header-shadow: none;
                     }
                 }
                 .card-content {
-                    width: 30%;
+                    width: 100%;
+                    .content{
+                        @include responsive(big-desktop) {
+                            width:30%;
+                        }
                     .card-title {
                         text-transform: uppercase;
                         line-height: 3.7rem;
@@ -362,3 +374,4 @@ $card-header-shadow: none;
         }
     }
 }
+    }
